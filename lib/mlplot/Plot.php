@@ -58,7 +58,7 @@ class Plot {
         $plot = new PHPlot (self::$width, self::$height);
         $plot->SetImageBorderType('plain');
         $plot->SetPlotType('lines');
-        $plot->SetDataType('data-data');
+        $plot->SetDataType('text-data');
 
         $plot->SetDataValues($data);
 
@@ -83,4 +83,35 @@ class Plot {
         $plot->SetOutputFile($fileName);   
         $plot->DrawGraph(); 
    }
+
+   public static function Bar(array $data, $fileName) {
+
+    $plot = new PHPlot (self::$width, self::$height);
+    $plot->SetImageBorderType('plain');
+    $plot->SetPlotType('bars');
+    $plot->SetDataType('text-data');
+
+    $plot->SetDataValues($data);
+    
+    # Main plot title:
+    $plot->SetTitle(self::$title);
+
+    # Set Y data limits, tick increment, and titles:
+    $plot->SetPlotAreaWorld(NULL, NULL, NULL, NULL);
+    // $plot->SetYTickIncrement(10);
+    // $plot->SetYTitle('% of Total');
+    // $plot->SetXTitle('Year');
+
+    # Colors are significant to this data:
+    // $plot->SetDataColors(array('red', 'green', 'blue', 'yellow', 'cyan', 'magenta'));
+    // $plot->SetLegend(array('Cherry', 'Lime', 'Lemon', 'Banana', 'Apple', 'Berry'));
+
+    # Turn off X tick labels and ticks because they don't apply here:
+    $plot->SetXTickLabelPos('none');
+    $plot->SetXTickPos('none');
+
+    $plot->SetIsInline(true);
+    $plot->SetOutputFile($fileName);   
+    $plot->DrawGraph(); 
+  }   
 }

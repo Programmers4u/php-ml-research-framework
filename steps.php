@@ -102,34 +102,40 @@ $text = '';
 // $text = '';
 
 /**
-* Odkrywanie najlepszegow walidatora
+* Validator
 */
 
-// while (empty($text)) $text = readline("Do you want start testing estimator?: y/n \n");
-// if($text === 'y') {
-//     include_once './steps/validate.php';
-// };
-// $text = '';
+while (empty($text)) $text = readline("Do you want start validate estimator?: y/n \n");
+if($text === 'y') {
+    $text = '';
+    include_once './steps/validate.php';
+
+    while (empty($text)) $text = readline("Do you want save model or exit?: y/n \n");
+    if($text === 'y') $estimator->save();
+    if($text === 'n') exit;
+    $text = '';    
+};
+$text = '';
 
 /**
 * Ćwiczenie estymatora
 */
 
-// while (empty($text)) $text = readline("Do you want start training?: y/n \n");
-// if($text === 'y') {
-//     include_once './steps/train.php';
-// };
-// $text = '';
+while (empty($text)) $text = readline("Do you want start training?: y/n \n");
+if($text === 'y') {
+    include_once './steps/train.php';
+};
+$text = '';
 
 /**
 * Prognozowanie
 */
 
-// while (empty($text)) $text = readline("Do you want predict?: y/n \n");
-// if($text === 'y') {
-//     include_once './steps/predict.php';
-// };
-// $text = '';
+while (empty($text)) $text = readline("Do you want predict?: y/n \n");
+if($text === 'y') {
+    include_once './steps/predict.php';
+};
+$text = '';
 
 /**
 * Wyszukiwanie anomali [cech]

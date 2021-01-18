@@ -13,6 +13,7 @@ use Rubix\ML\Other\Loggers\Screen;
 use Rubix\ML\Transformers\NumericStringConverter;
 use Rubix\ML\Transformers\OneHotEncoder;
 use Rubix\ML\Transformers\RandomHotDeckImputer;
+use Rubix\ML\Transformers\WordCountVectorizer;
 use Rubix\ML\Transformers\ZScaleStandardizer;
 
 /**
@@ -60,10 +61,10 @@ $dataset = $datasetMale->merge($datasetFemale);
 $logger->info('Dataset samples: ' . $dataset->numRows());
 
 $dataset->sortByColumn(1);
+// $dataset->sortByLabel();
+// $dataset->deduplicate();
 echo $dataset;
 
-// $dataset->deduplicate();
-// $dataset->sortByLabel();
 $logger->info('Dataset samples randomize and take 100');
 $dataset = $dataset->randomize()->take(100);
 $dataset->transformColumn(0, function ($value) {
@@ -78,12 +79,9 @@ echo $dataset;
 //     return preg_match('/Nowe Warpno.*/isU',$item);    
 // });
 
-// echo $dataset;
-
-exit;
-
 $logger->info('Dataset transform');
 $dataset
+    ->apply(new WordCountVectorizer())
     ->apply(new RandomHotDeckImputer())
     ->apply(new NumericStringConverter())
     ->apply(new OneHotEncoder())
