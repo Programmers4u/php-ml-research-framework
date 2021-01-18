@@ -1,0 +1,14 @@
+{
+  "name": "ml-model-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "programmers4u",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security"
+  }
+}

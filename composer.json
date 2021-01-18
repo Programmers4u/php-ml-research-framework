@@ -1,0 +1,31 @@
+{
+    "name": "p4u/php-ml-research",
+    "type": "project",
+    "description": "Simple Research framework for ML",
+    "homepage": "https://programmers4u.com",
+    "license": "MIT",
+    "keywords": [
+        "machine", "learning", "data", "science", "mining", "predictive", "modeling",
+        "ai", "classification", "neural-network"
+    ],
+    "authors": [
+        {
+            "name": "Marcin Kania",
+            "email": "marcin@programmers4u.com",
+            "homepage": "https://programmers4u.com",
+            "role": "Lead Engineer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "league/csv": "^9.5",
+        "rubix/ml": "^0.2.4",
+        "rubix/server": "^0.2.3@beta"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
