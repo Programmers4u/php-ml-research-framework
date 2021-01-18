@@ -73,8 +73,6 @@ $dataset->transformColumn(1, function ($value) {
     return empty($value) ? NAN : $value;
 });
 
-echo $dataset->columns();
-
 echo $dataset;
 // $dataset->filterByColumn(2, function($item){
 //     return preg_match('/Nowe Warpno.*/isU',$item);    

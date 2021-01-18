@@ -3,12 +3,49 @@
 namespace P4u\ML\Research\Steps;
 
 /**
- *  Profil psychologiczny grup społecznych w przedziałach wiekowych
+ * * * BADANIE 1 * * *
+ * 
+ * Co mówi nam statystyka dotycząca ludności?
+ * 
+ * Z badań psychologicznych wiemy ze mozna stworzyc ogólny profil psychologiczny na podstawie
+ * rodzaju oraz wieku.
+ *
+ * Załozenie:
+ * 
+ * W miejscach gdzie występuje duzo takich samych lub podobnych obiektów - przewazają czynniki społeczne 
+ * determinujące do spełnienia roli społecznej adekwatnej do kultury i satusu społecznego.
+ * 
+ * Przedział wiekowy:
+ * 24 - 35 czynniki: realizacja społeczna
+ * 35 - 45 czynniki: realizacja osobista
+ * 45 - 55 czynniki: 
+ * 
+ * Co moze nam to dać?
+ * 
+ * Mozemy dowiedzieć się w których miejscach na mapie znajdują się dane skupiska i następnie
+ * emitować odpowiedno skierowany przekaz.
+ * 
+ * Mozemy identyfikować w prosty i ogólny sposób płeć jeśli znamy obszar z którego pochodzi odwiedzający
+ * np.: adres IP, miejscowość, ulica
+ * 
+ * Moemy zestawić te dane z danymi środowiskowymi, np.: skład powierzta lub/i medycznym 
+ * częstotliwośc zapadania na choroby.
+ * 
+ * Analiza wieku grup pomoze dowiedziec się gdzie jest duze prawdopodobienstwo 
+ * nowych nieruchomość ze względu na umieralność.
+ * 
+ * Zestawienie usług w danym  obszarze w odniesieniu do zagęszczenia i rodzaju 
+ * 
+ * Moemy dowiedzieć się jaki biznes otworzyć
+ * 
  * Odnalezienie skupisk grup społecznych ze względu na wiek w przestrzeni geograficznej
- * Utworzenie przekazu reklamowego do konkretnej grupy społecznej z uwzgędnieniem profili społecznych
+ * 
+ * * * Realizacja * * *
+ * 
+ * Utworzenie przekazu reklamowego do kazdej grupy społecznej [wiek] z uwzgędnieniem profili społecznych
  * Min 3 wersje przekazu
- * Analiza skuteczności
- * Wybór najlepszych cech przekazu reklamowego
+ * 
+ * Analiza skuteczności -> Wybór najlepszych cech przekazu reklamowego -> Zastosowanie -> Analiza skuteczności
  * 
  * Określenie potrzeb grup wiekowej z podziałem na cechy:
  * - płeć
@@ -17,33 +54,22 @@ namespace P4u\ML\Research\Steps;
  * - potrzeby osobiste (wynikające z roli społecznej i statusu [stan cywilny,zawód])
  * - zawód (określenie status w podziale pracy)
  * 
- * Rozkład grup wiekowych na rejony miasta/kraju
+ * Rozkład grup wiekowych i rodzaju na rejony: ulice / dzielnice / miasta / państwa
+ * 
+ * Określenie oczekiwań społecznych:
  * Oczekiwania względem roli społecznej z uwzględnieniem kultury
  * Oczekiwania względem statusu społecznego z uwzględnieniem kultury
- * Klastrowanie 
+ * 
  */
 
 /**
- * 
- * Rozkład w regionach kobiet / męzczyzna
- * dobór startegi przekazu
- * Załozenie:
- * W miejscach gdzie wystepuje wiwecej kobiet 25-35 przewazaja czynnik
- * spoleczne determinujące do spełnienia roli społecznek
- * 35-45 real;izacja osobosta maciezycstwo stabilizacja
- * takie czynnik sprawiaj ze przekaz poinien byc inny
- * Jesli zidentyfikujemy uzystkownika jako kobiete z danego regionu
- * to mozemy wyswietlic jej reklame lub tresc zgodnie z najwiekszym prwadopodobientwem zakupu
- * 
- * - płeć obywateli
- * 
- * Steps:
+ * * * Steps * * *
  * - Pobranie bazy danych z Urzędu Statystycznego i przygotowanie danych []
  * - validacja estymatora
  * - trening
+ * - validacja
  * - predykcja
- * -
- * 
+ * - dist
  */
 
 include_once __DIR__ . '/vendor/autoload.php';

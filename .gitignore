@@ -1,8 +1,7 @@
-models
-train
-test
-tmp
-doc
 .vscode
 .vs
+doc
+models
+train
 vendor
+composer.phar
