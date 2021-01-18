@@ -15,6 +15,7 @@ Zestw składa się z:
 - dist: node server z gotową dystrybucją do celów produkcyjnych
 - steps.php: plik z definicjami [krokami] rozwiązywania problemu
 - lib: biblioteka phplib do rysowania wykresów
+- lemp: foler tymczasowy
 
 ## Installation
 

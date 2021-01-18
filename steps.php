@@ -78,6 +78,7 @@ include_once __DIR__ . '/lib/mlplot/Plot.php';
 use Rubix\ML\Other\Loggers\Screen;
 
 $logger = new Screen();
+$disabledStep = json_decode(file_get_contents('./temp/disable.step'));
 
 /**
 * Dataset
@@ -105,17 +106,20 @@ $text = '';
 * Validator
 */
 
-while (empty($text)) $text = readline("Do you want start validate estimator?: y/n \n");
-if($text === 'y') {
-    $text = '';
-    include_once './steps/validate.php';
+if(!in_array('validator', $disabledStep)) {
 
-    while (empty($text)) $text = readline("Do you want save model or exit?: y/n \n");
-    if($text === 'y') $estimator->save();
-    if($text === 'n') exit;
+    while (empty($text)) $text = readline("Do you want start validate estimator?: y/n \n");
+    if($text === 'y') {
+        $text = '';
+        include_once './steps/validate.php';
+    
+        while (empty($text)) $text = readline("Do you want save model or exit?: y/n \n");
+        if($text === 'y') $estimator->save();
+        if($text === 'n') exit;
+        $text = '';    
+    };
     $text = '';    
-};
-$text = '';
+}
 
 /**
 * Ćwiczenie estymatora

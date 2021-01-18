@@ -46,3 +46,9 @@ $estimator->train($train);
 while (empty($text)) $text = readline("Do you want save model?: y/n \n");
 if($text === 'y') $estimator->save();
 $text = '';
+
+while (empty($text)) $text = readline("Do you want disable validate?: y/n \n");
+if($text === 'y') {
+    file_put_contents('./temp/disable.step', json_encode(['validate']));
+}
+$text = '';    
