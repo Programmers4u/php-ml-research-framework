@@ -1,9 +1,6 @@
 <?php
 namespace P4u\ML\Research\Steps\Validate;
 
-include_once __DIR__ . '/../vendor/autoload.php';
-// include_once __DIR__ . '/../lib/autoload.php';
-
 use P4u\ML\Graphics\Plot\Plot;
 use P4u\ML\Research\Research;
 use Rubix\ML\Classifiers\KDNeighbors;
@@ -60,14 +57,14 @@ class Validate extends Research {
         $logger->info('validator FBeta: ' . $FBeta);
         $logger->info('validator score: ' . $score);
 
-        Plot::$title = 'Validate';
-        Plot::$width = 800;
-        Plot::$height = 600;
-        $data = [
-            ['FBeta',1,$FBeta],
-            ['score',1,$score]
-        ];
-        Plot::Line($data,'./doc/validate.png');
+        // Plot::$title = 'Validate';
+        // Plot::$width = 800;
+        // Plot::$height = 600;
+        // $data = [
+        //     ['FBeta',1,$FBeta],
+        //     ['score',1,$score]
+        // ];
+        // Plot::Line($data,'./doc/validate.png');
 
         $predictions = $estimatorTested->predict($train->take(3));
         echo 'Predictions: ' . PHP_EOL;
@@ -80,12 +77,12 @@ class Validate extends Research {
         $results->toArray();
         // print_r($results);
 
-        Plot::$title = 'Validate predict';
-        $data = [
-            ['predictions score',$results['overall']['accuracy']],
-            ['validate score',$score]
-        ];
-        Plot::Bar($data,'./doc/validate-predict.png');
+        // Plot::$title = 'Validate predict';
+        // $data = [
+        //     ['predictions score',$results['overall']['accuracy']],
+        //     ['validate score',$score]
+        // ];
+        // Plot::Bar($data,'./doc/validate-predict.png');
 
         $estimator = 
         new PersistentModel(

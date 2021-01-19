@@ -3,6 +3,7 @@
 namespace P4u\ML\Research\Steps\Train;
 
 use P4u\ML\Research\Research;
+use Rubix\ML\Datasets\Unlabeled;
 use Rubix\ML\Other\Loggers\Screen;
 use Rubix\ML\PersistentModel;
 use Rubix\ML\Persisters\Filesystem;
@@ -11,7 +12,7 @@ ini_set('memory_limit', '-1');
 class Train extends Research {
 
     public function run() : void {
-        $train = $this->input;
+        $train = new Unlabeled($this->input);
 
         $estimator = PersistentModel::load(new Filesystem('models/' . $this->modelName . '.model'));
 
