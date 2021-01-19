@@ -22,6 +22,11 @@ The set consists of:
 ```php composer.phar install```
 or
 ```composer install```
+
+**How use?**
+
+```php steps.php```
+
 ## Requirements
 
 - [PHP](https://php.net) 7.2 or above

@@ -3,7 +3,7 @@
 namespace P4u\ML\Research\Steps;
 
 /**
- * * * BADANIE 1 * * *
+ *** BADANIE 1 ***
  * 
  * Co mówi nam statystyka dotycząca ludności?
  * 
@@ -40,7 +40,7 @@ namespace P4u\ML\Research\Steps;
  * 
  * Odnalezienie skupisk grup społecznych ze względu na wiek w przestrzeni geograficznej
  * 
- * * * Realizacja * * *
+ *** Realizacja ***
  * 
  * Utworzenie przekazu reklamowego do kazdej grupy społecznej [wiek] z uwzgędnieniem profili społecznych
  * Min 3 wersje przekazu
@@ -63,9 +63,9 @@ namespace P4u\ML\Research\Steps;
  */
 
 /**
- * * * Steps * * *
- * - Pobranie bazy danych z Urzędu Statystycznego i przygotowanie danych []
- * - validacja estymatora
+ *** Steps ***
+ * - Pobranie bazy danych z Urzędu Statystycznego i przygotowanie danych
+ * - validacja i wybór estymatora
  * - trening
  * - validacja
  * - predykcja
@@ -73,82 +73,132 @@ namespace P4u\ML\Research\Steps;
  */
 
 include_once __DIR__ . '/vendor/autoload.php';
-include_once __DIR__ . '/lib/mlplot/Plot.php';
+include_once __DIR__ . '/lib/autoload.php';
 
+use P4u\ML\Research\Steps\Dataset\Dataset;
+use P4u\ML\Research\Steps\Generator\Generator;
+use P4u\ML\Research\Steps\Validate\Validate;
+
+use P4u\ML\Research\Research;
+use P4u\ML\Research\IDataset\IDataset;
+use P4u\ML\Research\IGenerator\IGenerator;
+use P4u\ML\Research\IPredict\IPredict;
+use P4u\ML\Research\ITrain\ITrain;
+use P4u\ML\Research\IValidate\IValidate;
+use P4u\ML\Research\Steps\Predict\Predict;
+use P4u\ML\Research\Steps\Train\Train;
 use Rubix\ML\Other\Loggers\Screen;
 
-$logger = new Screen();
-$disabledStep = json_decode(file_get_contents('./temp/disable.step'));
+if(!is_dir(__DIR__ . '/temp')) mkdir(__DIR__ . '/temp');
+// if(!is_file(__DIR__ . '/temp/disable.step'))  touch(__DIR__ . '/temp/disable.step');
+// $disabledStep = json_decode(file_get_contents('./temp/disable.step'));
 
-/**
-* Dataset
-*/
-
-while (empty($text)) $text = readline("Do you have source raw data from csv or other place?: y/n \n");
-if($text === 'y') {
-    $logger->info('welcome, start research');
-
-    include './steps/dataset.php';
-};
-$text = '';
-
-/**
-* Generowanie zestawu danych 1000 próbek
-*/
-  
-// while (empty($text)) $text = readline("Do you want start generator?: y/n \n");
-// if($text === 'y') {
-//     include_once './steps/generator.php';
-// };
-// $text = '';
-
-/**
-* Validator
-*/
-
-if(!in_array('validator', $disabledStep)) {
-
-    while (empty($text)) $text = readline("Do you want start validate estimator?: y/n \n");
-    if($text === 'y') {
-        $text = '';
-        include_once './steps/validate.php';
+class Steps extends Research implements 
+    IDataset, 
+    IValidate, 
+    ITrain, 
+    IGenerator,
+    IPredict {
     
-        while (empty($text)) $text = readline("Do you want save model or exit?: y/n \n");
-        if($text === 'y') $estimator->save();
-        if($text === 'n') exit;
-        $text = '';    
-    };
-    $text = '';    
+    protected $dataset;
+    protected $datasetGenertion;
+    protected $estimator;
+
+    public function run() : void {
+
+        $this->setLogger(new Screen());        
+        
+        /**
+        * Dataset
+        */
+
+        $answer = $this->ask("Do you have source raw data from csv or other place?: y/n", "y");
+        if(!$answer) exit;
+
+        $this->info('welcome, start research');
+        $this->setData();
+
+        /**
+        * Validator
+        */
+
+        $answer = $this->ask("Do you want start validate estimator?: y/n", "y");
+        if($answer) {
+            $this->setValidate();
+            $answer = $this->ask("Do you want save model or exit?: y/n", "y");
+            if($answer) $this->estimator->save();
+        }
+
+        /**
+        * Generowanie zestawu danych 1000 próbek
+        */
+
+        $answer = $this->ask("Do you want start generator?: y/n", "y");
+        if($answer) $this->datasetGenertion = $this->setGenerator();
+  
+        /**
+        * Estimator training
+        */
+
+        $answer = $this->ask("Do you want start training?: y/n ","y");
+        if($answer) $this->setTrain();
+
+        /**
+        * Prognozowanie
+        */
+        $answer = $this->ask("Do you want predict?: y/n ","y");
+        if($answer) $this->setPredict();
+
+        /**
+        * Wyszukiwanie anomali [cech]
+        */
+
+        /**
+        * Uczenie ze wzmocnieniem [RL]
+        */
+
+        /**
+        * Zapisz zestaw danych
+        */
+    }
+
+    public function setPredict(): void
+    {
+        new Predict($this->testData());
+    }
+
+    public function setGenerator(): void
+    {
+        $this->datasetGenertion = new Generator();
+    }
+
+    public function setTrain(): void
+    {
+        new Train($this->trainData());
+    }
+
+    public function setValidate() : void
+    {
+        $this->estimator = new Validate($this->dataset);    
+    }
+
+    public function setData() : void
+    {
+        $data = new Dataset();
+        $this->dataset = $data->result();
+    }
+
+    public function testData() : array
+    {
+        return $this->dataset['test'];
+    }
+
+    public function trainData() : array
+    {
+        return $this->dataset['train'];        
+    }
 }
 
-/**
-* Ćwiczenie estymatora
-*/
+$research = new Steps();
 
-while (empty($text)) $text = readline("Do you want start training?: y/n \n");
-if($text === 'y') {
-    include_once './steps/train.php';
-};
-$text = '';
-
-/**
-* Prognozowanie
-*/
-
-while (empty($text)) $text = readline("Do you want predict?: y/n \n");
-if($text === 'y') {
-    include_once './steps/predict.php';
-};
-$text = '';
-
-/**
-* Wyszukiwanie anomali [cech]
-*/
-
-/**
-* Uczenie ze wzmocnieniem [RL]
-*/
-
-/**
-* Zapisz zestaw danych
-*/
+exit;
