@@ -2,9 +2,6 @@
 
 namespace P4u\ML\Research\Steps\Dataset;
 
-include_once __DIR__ . '/../vendor/autoload.php';
-include_once __DIR__ . '/../lib/autoload.php';
-
 use P4u\ML\Research\Research;
 use Rubix\ML\Datasets\Labeled;
 use Rubix\ML\Datasets\Unlabeled;
@@ -18,7 +15,6 @@ use Rubix\ML\Transformers\WordCountVectorizer;
 use Rubix\ML\Transformers\ZScaleStandardizer;
 
 ini_set('memory_limit', '-1');
-
 class Dataset extends Research {
 
     public function run() : void {

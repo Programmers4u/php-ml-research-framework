@@ -2,16 +2,8 @@
 
 namespace P4u\ML\Research\Steps\Generator;
 
-include_once __DIR__ . '/../vendor/autoload.php';
-include_once __DIR__ . '/../lib/autoload.php';
-
 use P4u\ML\Research\Research;
 use Rubix\ML\Datasets\Generators\Hyperplane;
-use Rubix\ML\Kernels\Distance\Euclidean;
-use Rubix\ML\Transformers\NumericStringConverter;
-use Rubix\ML\Transformers\OneHotEncoder;
-use Rubix\ML\Transformers\RandomHotDeckImputer;
-use Rubix\ML\Transformers\ZScaleStandardizer;
     
 ini_set('memory_limit', '-1');
 

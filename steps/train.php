@@ -2,12 +2,7 @@
 
 namespace P4u\ML\Research\Steps\Train;
 
-include_once __DIR__ . '/../vendor/autoload.php';
-include_once __DIR__ . '/../lib/autoload.php';
-
-use P4u\ML\Graphics\Plot\Plot;
 use P4u\ML\Research\Research;
-use Rubix\ML\CrossValidation\Reports\MulticlassBreakdown;
 use Rubix\ML\Other\Loggers\Screen;
 use Rubix\ML\PersistentModel;
 use Rubix\ML\Persisters\Filesystem;

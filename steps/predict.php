@@ -1,9 +1,6 @@
 <?php
 namespace P4u\ML\Research\Steps\Predict;
 
-include __DIR__ . '/../vendor/autoload.php';
-include_once __DIR__ . '/../lib/autoload.php';
-
 use P4u\ML\Graphics\Plot\Plot;
 use P4u\ML\Research\Research;
 use Rubix\ML\CrossValidation\Reports\MulticlassBreakdown;

@@ -2,7 +2,7 @@
 namespace P4u\ML\Research\Steps\Validate;
 
 include_once __DIR__ . '/../vendor/autoload.php';
-include_once __DIR__ . '/../lib/autoload.php';
+// include_once __DIR__ . '/../lib/autoload.php';
 
 use P4u\ML\Graphics\Plot\Plot;
 use P4u\ML\Research\Research;

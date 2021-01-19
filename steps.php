@@ -200,5 +200,4 @@ class Steps extends Research implements
 }
 
 $research = new Steps();
-
 exit;

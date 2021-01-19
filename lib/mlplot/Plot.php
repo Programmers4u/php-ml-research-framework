@@ -2,7 +2,7 @@
 
 namespace P4u\ML\Graphics\Plot;
 
-include __DIR__ . '/phplot.php';
+include_once __DIR__ . '/phplot.php';
 
 use PHPlot\PHPlot;
 
