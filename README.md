@@ -1,24 +1,27 @@
-# Programmers4U ML Research FrameWork
+# Programmers4u ML Simple Research FrameWork
 
-**Zestaw startowy do uczenia maszynowego dla języka PHP z uzyciem biblioteki RubixML i phplot**
+**Machine learning starter kit for PHP using the library RubixML and phplot**
 
-***Po co?***
+***What for?***
 
-Ułatwienie niedoświadczonym w dziedzinie sztucznej inteligencji programistom php wejście tę gałąź informatyki.
+Facilitating the inexperienced in the field of artificial intelligence php programmer to enter this branch of computer science.
 
-Zestw składa się z:
+The set consists of:
 
-- doc: katalog raportów, mozesz tam trzymać własne uwagi
-- models: zapisny gotowy model do uzycia który stworzyłeś/aś
-- train: foler z zestawem próbek
-- steps: definicje wszystkich kroków uzytych w pliku steps.php
-- dist: node server z gotową dystrybucją do celów produkcyjnych
-- steps.php: plik z definicjami [krokami] rozwiązywania problemu
-- lib: biblioteka phplib do rysowania wykresów
-- lemp: foler tymczasowy
+- **doc** : directory with reports and graphs, you can keep your own comments there
+- **models** : the ready to use model you have created
+- **train** : foler with a set of samples
+- **steps** : definitions of all steps used in the steps.php file
+- **dist** : node server with ready distribution for production
+- **steps.php** : file with definitions [steps] of solving the problem
+- **lib** : phplib library for drawing charts
+- **temp** : support folder
 
 ## Installation
 
+```php composer.phar install```
+or
+```composer install```
 ## Requirements
 
 - [PHP](https://php.net) 7.2 or above

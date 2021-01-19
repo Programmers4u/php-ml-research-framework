@@ -10,7 +10,6 @@ class Plot {
 
     public static $height;        
     public static $width;
-
     public static $title;
 
     public static function stackedArea(array $data, $fileName) {
