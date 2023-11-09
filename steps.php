@@ -2,75 +2,72 @@
 
 namespace P4u\ML\Research\Steps;
 
-/**
- *** BADANIE 1 ***
- * 
- * Co mówi nam statystyka dotycząca ludności?
- * 
- * Z badań psychologicznych wiemy ze mozna stworzyc ogólny profil psychologiczny na podstawie
- * rodzaju oraz wieku.
- *
- * Załozenie:
- * 
- * W miejscach gdzie występuje duzo takich samych lub podobnych obiektów - przewazają czynniki społeczne 
- * determinujące do spełnienia roli społecznej adekwatnej do kultury i satusu społecznego.
- * 
- * Przedział wiekowy:
- * 24 - 35 czynniki: realizacja społeczna
- * 35 - 45 czynniki: realizacja osobista
- * 45 - 55 czynniki: 
- * 
- * Co moze nam to dać?
- * 
- * Mozemy dowiedzieć się w których miejscach na mapie znajdują się dane skupiska i następnie
- * emitować odpowiedno skierowany przekaz.
- * 
- * Mozemy identyfikować w prosty i ogólny sposób płeć jeśli znamy obszar z którego pochodzi odwiedzający
- * np.: adres IP, miejscowość, ulica
- * 
- * Moemy zestawić te dane z danymi środowiskowymi, np.: skład powierzta lub/i medycznym 
- * częstotliwośc zapadania na choroby.
- * 
- * Analiza wieku grup pomoze dowiedziec się gdzie jest duze prawdopodobienstwo 
- * nowych nieruchomość ze względu na umieralność.
- * 
- * Zestawienie usług w danym  obszarze w odniesieniu do zagęszczenia i rodzaju 
- * 
- * Moemy dowiedzieć się jaki biznes otworzyć
- * 
- * Odnalezienie skupisk grup społecznych ze względu na wiek w przestrzeni geograficznej
- * 
- *** Realizacja ***
- * 
- * Utworzenie przekazu reklamowego do kazdej grupy społecznej [wiek] z uwzgędnieniem profili społecznych
- * Min 3 wersje przekazu
- * 
- * Analiza skuteczności -> Wybór najlepszych cech przekazu reklamowego -> Zastosowanie -> Analiza skuteczności
- * 
- * Określenie potrzeb grup wiekowej z podziałem na cechy:
- * - płeć
- * - stan cywilny
- * - zainteresowania osobiste (hobby,polityczne)
- * - potrzeby osobiste (wynikające z roli społecznej i statusu [stan cywilny,zawód])
- * - zawód (określenie status w podziale pracy)
- * 
- * Rozkład grup wiekowych i rodzaju na rejony: ulice / dzielnice / miasta / państwa
- * 
- * Określenie oczekiwań społecznych:
- * Oczekiwania względem roli społecznej z uwzględnieniem kultury
- * Oczekiwania względem statusu społecznego z uwzględnieniem kultury
- * 
- */
-
-/**
- *** Steps ***
- * - Pobranie bazy danych z Urzędu Statystycznego i przygotowanie danych
- * - validacja i wybór estymatora
- * - trening
- * - validacja
- * - predykcja
- * - dist
- */
+/*** STUDY 1 ***
+  *
+  * What do population statistics tell us?
+  *
+  * We know from psychological research that a general psychological profile can be created based on
+  * type and age.
+  *
+  * Assumption:
+  *
+  * In places where there are many of the same or similar objects, social factors prevail
+  * determining the fulfillment of a social role appropriate to the culture and social status.
+  *
+  * Age range:
+  * 24 - 35 factors: social implementation
+  * 35 - 45 factors: personal implementation
+  * 45 - 55 factors:
+  *
+  * What can this give us?
+  *
+  * We can find out where on the map certain clusters are located and then
+  * emit an appropriately targeted message.
+  *
+  * We can identify gender in a simple and general way if we know the area the visitor comes from
+  * e.g.: IP address, city, street
+  *
+  * We can compare this data with environmental data, e.g. air composition and/or medical data
+  * frequency of disease.
+  *
+  * Analyzing the age of groups will help you find out where there is a high probability
+  * new property due to mortality.
+  *
+  * Summary of services in a given area in relation to density and type
+  *
+  * We can find out what business to open
+  *
+  * Finding clusters of social groups based on age in geographical space
+  *
+  *** Realization ***
+  *
+  * Creating an advertising message for each social group [age], taking into account social profiles
+  *Min 3 versions of the message
+  *
+  * Effectiveness analysis -> Selection of the best features of the advertising message -> Application -> Effectiveness analysis
+  *
+  * Determining the needs of the age group divided into characteristics:
+  * - sex
+  * - marital status
+  * - personal interests (hobby, political)
+  * - personal needs (resulting from social role and status [marital status, profession])
+  * - profession (determination of status in the division of labor)
+  *
+  * Distribution of age groups and types by areas: streets / districts / cities / countries
+  *
+  * Determining social expectations:
+  * Expectations regarding social role, taking into account culture
+  * Expectations regarding social status, taking into account culture
+  *
+  *
+  ***Steps***
+  * - Downloading the database from the Statistical Office and preparing the data
+  * - validation and selection of estimator
+  * - training
+  * - validation
+  * - prediction
+  * - dist
+  */
 
 include_once __DIR__ . '/vendor/autoload.php';
 include_once __DIR__ . '/lib/autoload.php';
