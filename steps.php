@@ -127,7 +127,7 @@ class Steps extends Research implements
         }
 
         /**
-        * Generowanie zestawu danych 1000 próbek
+        * Generating a dataset of 1000 samples
         */
 
         $answer = $this->ask("Do you want start generator?: y/n", "y");
@@ -141,21 +141,21 @@ class Steps extends Research implements
         if($answer) $this->setTrain();
 
         /**
-        * Prognozowanie
+        * Forecasting
         */
         $answer = $this->ask("Do you want predict?: y/n ","y");
         if($answer) $this->setPredict();
 
         /**
-        * Wyszukiwanie anomali [cech]
+        * Search for anomalies [features]
         */
 
         /**
-        * Uczenie ze wzmocnieniem [RL]
+        * Reinforcement learning [RL]
         */
 
         /**
-        * Zapisz zestaw danych
+        * Save the data set
         */
     }
 
